@@ -1,14 +1,11 @@
-# SUIT CSS naming conventions
+# SUIT CSS命名規則
 
-SUIT CSS relies on _structured class names_ and _meaningful hyphens_ (i.e., not
-using hyphens merely to separate words). This helps to work around the current
-limits of applying CSS to the DOM (i.e., the lack of style encapsulation), and
-to better communicate the relationships between classes.
+SUIT CSSは_構造化されたクラス名_と_意味のあるハイフン_（単にハイフンを単語区切りとして使うのではないということ）に依っている。
+CSSをDOMに適用する際に存在する制限（スタイルのカプセル化の欠如）への対処およびクラス間の関係を扱いやすくすることを支援する。
 
-The primary architectural division is between **[utilities](utilities.md)** and
-**[components](components.md)**.
+構造に関する主要なことは**[ユーティリティ](utilities.md)**と**[コンポーネント](components.md)**を参照。
 
-**Table of contents**
+**目次**
 
 * [u-utilityName](#u-utilityName)
 * [ComponentName](#ComponentName)
@@ -16,18 +13,16 @@ The primary architectural division is between **[utilities](utilities.md)** and
 * [ComponentName-descendantName](#ComponentName-descendantName)
 * [ComponentName.is-stateOfComponent](#is-stateOfComponent)
 
-## [Utilities](utilities.md)
+## [ユーティリティ](utilities.md)
 
-Low-level structural and positional traits. Utilities can be applied directly
-to any element within a component.
+低レベル（下位）の構造およびポジションに関するもの。ユーティリティはコンポーネント内のどんな要素に対しても直接適用することができる。
 
-Syntax: `u-[sm|md|lg-]<utilityName>`
+構文: `u-[sm|md|lg-]<utilityName>`
 
 <a name="u-utilityName"></a>
 ### u-utilityName
 
-Utilities must use a camel case name. What follows is an example of how various
-utilities can be used to create a simple structure within a component.
+ユーティリティにはキャメルケースの名前を使わなくてはならない。以下の例は、コンポーネント内に簡単な構造を作るのにユーティリティをどのように使えるかを示したもの。
 
 ```html
 <div class="u-cf">
@@ -40,45 +35,40 @@ utilities can be used to create a simple structure within a component.
 </div>
 ```
 
-### Responsive utilities
+### レスポンシブユーティリティ
 
-Certain utilities have responsive variants using the patterns: `u-sm-<name>`,
-`u-md-<name>`, and `u-lg-<name>` for small, medium, and large Media Query
-breakpoints.
+レスポンシブな派生系がある一部のユーティリティは、スモール、ミディアム、ラージの各メディアクエリブレークポイントに対応する `u-sm-<name>`、`u-md-<name>`、`u-lg-<name>` というパターンを持っている。
 
 
-## [Components](components.md)
+## [コンポーネント](components.md)
 
-The CSS responsible for component-specific styling.
+コンポーネント固有のスタイリングのためのCSS。
 
-Syntax: `[<namespace>-]<ComponentName>[--modifierName|-descendentName]`
+構文: `[<namespace>-]<ComponentName>[--modifierName|-descendentName]`
 
-This has several benefits when reading and writing HTML and CSS:
+この構文には、HTMLとCSSを読み書きする上でいくつかの利点がある:
 
-* It helps to distinguish between the classes for the root of the component,
-  descendent elements, and modifications.
-* It keeps the specificity of selectors low.
-* It helps to decouple presentation semantics from document semantics.
+* コンポーネントのルート(root)、子孫となる要素、修飾に対するクラスを判別しやすくなる
+* セレクタの詳細度を低く保つことができる
+* 装飾のためのセマンティクスを文書のセマンティクスから分離できる
 
-### namespace (optional)
+### namespace - 名前空間 (オプション)
 
-If necessary, components can be prefixed with a namespace. For example, you may
-wish to avoid the potential for collisions between libraries and your custom
-components by prefixing all your components with a namespace.
+必要に応じてコンポーネントには名前空間のプレフィックスを付けることができる。
+例えば、すべての自分のコンポーネントに名前空間のプレフィックスを付けておくことで、カスタムコンポーネントとライブラリが衝突する可能性を排除することができる。
 
 ```css
 .twt-Button { /* … */ }
 .twt-Tabs { /* … */ }
 ```
 
-This makes it clear, when reading the HTML, which components are part of your
-library.
+これによって、HTMLを読んだ時にどのコンポーネントが自分のライブラリのものかが明確になる。
 
 <a name="ComponentName"></a>
-### ComponentName
+### ComponentName - コンポーネント名
 
-The component's name must be written in pascal case. Nothing else in the
-HTML/CSS uses pascal case.
+コンポーネントの名前はパスカルケースで記述しなくてはならない。
+HTML/CSSにおいてパスカルケースを使うのはコンポーネントのみとする。
 
 ```css
 .MyComponent { /* … */ }
@@ -91,13 +81,11 @@ HTML/CSS uses pascal case.
 ```
 
 <a name="ComponentName--modifierName"></a>
-### ComponentName--modifierName
+### ComponentName--modifierName - コンポーネント名--モディファイア名
 
-A component modifier is a class that modifies the presentation of the base
-component in some form (e.g., for a certain configuration of the component).
-Modifier names must be written in camel case and be separated from the
-component name by two hyphens. The class should be included in the HTML _in
-addition_ to the base component class.
+コンポーネントモディファイアとは、基本となるコンポーネントの装飾を何らかの形で変更するクラスである（例：コンポーネントの特定の形態を表すため）。
+モディファイア名はキャメルケースで、かつコンポーネント名とは2つのハイフンで分けられていなくてはならない。
+このクラスは、基本となるコンポーネントのクラスに_加えて_HTMLに記述しなければならない。
 
 ```css
 /* Core button */
@@ -111,12 +99,10 @@ addition_ to the base component class.
 ```
 
 <a name="ComponentName-descendentName"></a>
-### ComponentName-descendentName
+### ComponentName-descendentName - コンポーネント名-子孫名
 
-A component descendent is a class that is attached to a descendent node of a
-component. It's responsible for applying presentation directly to the
-descendent on behalf of a particular component. Descendent names must be
-written in camel case.
+コンポーネントの子孫とはコンポーネントの子孫ノードに付けられるクラスであり、個々のコンポーネントの代わりに子孫に対して直接装飾を行うためのものである。
+子孫名はキャメルケースで記述しなければならない。
 
 ```html
 <article class="Tweet">
@@ -131,15 +117,13 @@ written in camel case.
 ```
 
 <a name="is-stateOfComponent"></a>
-### ComponentName.is-stateOfComponent
+### ComponentName.is-stateOfComponent - コンポーネント名.is-状態
 
-Use `is-stateName` to reflect changes to a component's state. The state name
-must be camel case. **Never style these classes directly; they should always be
-used as an adjoining class.**
+コンポーネントの状態に対する変更をあらわすには`is-stateName`を使う。
+状態名はキャメルケースでなければならない。
+**これらのクラスには直接スタイリングは行わない。常に他のクラスと連接させて共に使うこと。**
 
-This means that the same state names can be used in multiple contexts, but
-every component must define its own styles for the state (as they are scoped to
-the component).
+同じ状態名を復数のコンテキストで使うことができる。ただし、その状態を持つすべてのコンポーネントでは状態毎の自身のスタイルを（そのコンポーネント内に閉じた形で）定義していなければならない。
 
 ```css
 .Tweet { /* … */ }
