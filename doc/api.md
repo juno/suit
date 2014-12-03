@@ -1,13 +1,12 @@
 # API
 
-The complete API provided by official SUIT CSS packages. See the README of
-individual packages for details of their API.
+公式のSUIT CSSパッケージが提供する完全なAPI。各APIの詳細はそれぞれのパッケージのREADMEを参照。
 
-## Utilities
+## ユーティリティ
 
 ### [After](https://github.com/suitcss/utils-after)
 
-#### Classes
+#### クラス
 
 * `u-afterXof2`
 * `u-afterXof3`
@@ -18,11 +17,11 @@ individual packages for details of their API.
 * `u-afterXof10`
 * `u-afterXof12`
 
-…and responsive variants `u-sm-*`, `u-md-*`, and `u-lg-*`.
+およびレスポンシブな派生系である`u-sm-*`と`u-md-*`、`u-lg-*`。
 
 ### [Align](https://github.com/suitcss/utils-align)
 
-#### Classes
+#### クラス
 
 * `u-alignTop`
 * `u-alignMiddle`
@@ -31,7 +30,7 @@ individual packages for details of their API.
 
 ### [Before](https://github.com/suitcss/utils-before)
 
-#### Classes
+#### クラス
 
 * `u-beforeXof2`
 * `u-beforeXof3`
@@ -42,11 +41,11 @@ individual packages for details of their API.
 * `u-beforeXof10`
 * `u-beforeXof12`
 
-…and responsive variants `u-sm-*`, `u-md-*`, and `u-lg-*`.
+およびレスポンシブな派生系である`u-sm-*`と`u-md-*`、`u-lg-*`。
 
 ### [Display](https://github.com/suitcss/utils-display)
 
-#### Classes
+#### クラス
 
 * `u-block`
 * `u-hidden`
@@ -59,7 +58,7 @@ individual packages for details of their API.
 
 ### [Layout](https://github.com/suitcss/utils-layout)
 
-#### Classes
+#### クラス
 
 * `u-cf`
 * `u-nbfc`
@@ -69,7 +68,7 @@ individual packages for details of their API.
 
 ### [Link](https://github.com/suitcss/utils-link)
 
-#### Classes
+#### クラス
 
 * `u-linkBlock`
 * `u-linkClean`
@@ -77,7 +76,7 @@ individual packages for details of their API.
 
 ### [Position](https://github.com/suitcss/utils-position)
 
-#### Classes
+#### クラス
 
 * `u-posAbsolute`
 * `u-posAbsoluteCenter`
@@ -87,7 +86,7 @@ individual packages for details of their API.
 
 ### [Size](https://github.com/suitcss/utils-size)
 
-#### Classes
+#### クラス
 
 * `u-sizeFill`
 * `u-sizeFillAlt`
@@ -103,11 +102,11 @@ individual packages for details of their API.
 * `u-sizeXof10`
 * `u-sizeXof12`
 
-…and responsive variants `u-sm-*`, `u-md-*`, and `u-lg-*`.
+およびレスポンシブな派生系である`u-sm-*`と`u-md-*`、`u-lg-*`。
 
 ### [Text](https://github.com/suitcss/utils-text)
 
-#### Classes
+#### クラス
 
 * `u-textBreak`
 * `u-textCenter`
@@ -119,11 +118,11 @@ individual packages for details of their API.
 * `u-textTruncate`
 
 
-## Components
+## コンポーネント
 
 ### [Arrange](https://github.com/suitcss/components-arrange)
 
-#### Classes
+#### クラス
 
 * `Arrange`
 * `Arrange--bottom`
@@ -133,18 +132,18 @@ individual packages for details of their API.
 * `Arrange-sizeFill`
 * `Arrange-sizeFit`
 
-#### Variables
+#### 変数
 
 * `--Arrange-gutter-size`
 
 ### [Button](https://github.com/suitcss/components-button)
 
-#### Classes
+#### クラス
 
 * `Button`
 * `Button.is-disabled`
 
-#### Variables
+#### 変数
 
 * `--Button-border-color`
 * `--Button-border-width`
@@ -155,7 +154,7 @@ individual packages for details of their API.
 
 ### [Flexible embeds](https://github.com/suitcss/components-flex-embed)
 
-#### Classes
+#### クラス
 
 * `FlexEmbed`
 * `FlexEmbed--2by1`
@@ -166,7 +165,7 @@ individual packages for details of their API.
 
 ### [Grid](https://github.com/suitcss/components-grid)
 
-#### Classes
+#### クラス
 
 * `Grid`
 * `Grid--alignBottom`
@@ -176,14 +175,14 @@ individual packages for details of their API.
 * `Grid-cell`
 * `Grid-cell--center`
 
-#### Variables
+#### 変数
 
 * `--Grid-font-size`
 * `--Grid-gutter-size`
 
 ### [Test](https://github.com/suitcss/components-test)
 
-#### Classes
+#### クラス
 
 * `Test`
 * `Test-describe`
