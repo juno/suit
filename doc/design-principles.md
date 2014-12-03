@@ -1,73 +1,62 @@
-# SUIT CSS design principles
+# SUIT CSSデザイン原則
 
-SUIT CSS is a methodology focused on improving the CSS authoring experience for
-component-based development.
+SUIT CSSは、コンポーネントベース開発におけるCSSオーサリングの体験を改善することにフォーカスした方法論である。
 
-A component-based system allows for the implementation and composition of
-loosely coupled, independent units into well-defined composite objects.
-Components are encapsulated but are able to interoperate via interfaces/events.
+コンポーネントベースのシステムは、独立したユニットをゆるい繋がりによって組み合わせ、うまく定義された合成オブジェクトに仕上げることを可能とする。
+コンポーネントはカプセル化されるが、インターフェースやイベントによって相互運用することはできる。
 
-1. [Modularity](#modularity)
-2. [Cohesion](#cohesion)
-3. [Composition and configuration](#composition)
-4. [Loose coupling](#coupling)
-5. [Soft encapsulation](#encapsulation)
-6. [Documentation](#documentation)
+1. [モジュラリティ](#modularity)
+2. [凝集性](#cohesion)
+3. [合成と設定](#composition)
+4. [疎結合](#coupling)
+5. [ソフトなカプセル化](#encapsulation)
+6. [ドキュメンテーション](#documentation)
 
 <a name="modularity"></a>
-## Modularity
+## モジュラリティ
 
-Each component should have a single focus and contain everything necessary to
-realise a specific part of the UI. Components may contain HTML,
-CSS, JavaScript, and associated assets without making assumptions about the
-outer rendering context.
+それぞれのコンポーネントは、1つの目的とそのためのUIに必要なすべてのものを含んでいなければならない。
+コンポーネントは、HTML、CSS、JavaScriptおよびその外側のコンテキストを意識することのないアセットを含むことができる。
 
 <a name="cohesion"></a>
-## Cohesion
+## 凝集性
 
-The functionality and presentation defined by a component must be semantically
-related. Components do not have direct influence over each other.
+コンポーネントが定義する機能と見た目は意味的に関連していなければならない。
+コンポーネントは互いに直接影響し合ってはならない。
 
 <a name="composition"></a>
-## Composable and configurable
+## 合成と設定
 
-Composability is concerned with the inter-relationships of components.
-Composable systems have components that can be assembled in various
-combinations, as required.
+合成のしやすさ（Composability）とは、コンポーネントの相互関係に関わることである。
+合成可能なシステムとは、必要に応じて様々に組み合わせできるコンポーネントから成る。
 
-Configuration is done via interfaces that are provided and used by components.
+設定（(Configuration）は、コンポーネントが提供するインターフェースを通じて行われる。
 
 <a name="coupling"></a>
-## Loose coupling
+## 疎結合
 
-Components should not directly modify the presentation or behaviour of their
-dependencies. Relying on interfaces and events for inter-component
-communication results in a loose coupling.
+コンポーネントは、自身が依存するものの見た目や振る舞いを直接変更してはならない。
+コンポーネント間のやり取りの結果を疎結合にするために、インターフェースとイベントを用いること。
 
-Attempting to reuse too much code across components can increase their
-coupling. Isolation is more important than avoiding the repetition of
-superficially similar code.
+コンポーネントを跨ぐコードの再利用をやり過ぎると、その結合を強めてしまう。
+表面的に似たコードの繰り返しを無くすことよりも、分離することのほうがより重要である。
 
 <a name="encapsulation"></a>
-## Soft encapsulation
+## ソフトなカプセル化
 
-The implementation of a component should not be exposed to other components.
-For example: your component should not leak styles into the HTML tree fragments
-of other components; a component's HTML should not be directly included in the
-HTML for another component.
+コンポーネントの実装が他のコンポーネントに開示されてはならない。
+例えば、コンポーネントが他のコンポーネントのHTMLツリー内にスタイルを影響させてはならないし、コンポーネントのHTMLが他のコンポーネントのHTML内に直接含まれたりしてもならない。
 
-Complexity is a significant problem for large, adaptive applications. The more
-you can reduce the entanglement of your components, the easier it is to reason
-about the system.
+巨大かつ適用可能な（Adaptive）なアプリケーションにとって、複雑性は重要な問題である。
+コンポーネントの絡み合いを減らしていくほど、システムについて理解することが容易になる。
 
 <a name="documentation"></a>
-## Documentation
+## ドキュメンテーション
 
-Write small, independent components that are well documented to describe how
-the components should be used, and why specific CSS properties are needed in
-the implementation. Do not assume that CSS is self-documenting.
+コンポーネントがどのように使われるべきか、実装において個々のCSSプロパティがなぜ必要なのかといったことがちゃんと解説された、小さく独立したコンポーネントを書くこと。
+CSS自身がドキュメントになるとは考えないこと。
 
-## Related reading
+## 関連情報
 
 * [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 * [Cohesion](http://en.wikipedia.org/wiki/Cohesion_(computer_science))
