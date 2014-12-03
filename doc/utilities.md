@@ -1,17 +1,14 @@
-# SUIT CSS utilities
+# SUIT CSSユーティリティ
 
-Utility classes map to fixed, low-level, structural and positional traits.
-These classes can be used in a component's HTML. Because utilities are so
-focused, they will generally use `!important` to ensure their styles are always
-applied.
+ユーティリティクラスは、fixedで低レベルな、構造的および位置的な振る舞いを表現する。
+クラスはコンポーネントのHTML内で使うことができる。
+ユーティリティはとても範囲を絞ったものなので、そのスタイルが常に適用されるよう基本的に`!important`を使っている。
 
-(Read about SUIT CSS's [naming conventions](naming-conventions.md).)
+(SUIT CSSの[命名規則](naming-conventions.md)も参照)
 
-## Why to use utilities
+## ユーティリティを使う理由
 
-Certain CSS properties and patterns are used frequently. For example: floats,
-containing floats, vertical alignment, text truncation. Relying on utilities
-can help to reduce repetition and provide consistent implementations.
+ある種のCSSプロパティとパターンは頻繁に使われる。例えば、floatsやcontaining floats、vertial alignment、text trunctaionなどだ。ユーティリティによって一貫した実装が用意され、繰り返しを避けることにも繋がる。
 
 ```html
 <div class="u-cf">
@@ -22,16 +19,13 @@ can help to reduce repetition and provide consistent implementations.
 </div>
 ```
 
-Some utilities apply only a single declaration, so why not use inline styles?
-Even here, small utilities are preferred because their values can be
-preprocessed (e.g., generating RTL style sheets) or adjusted to viewport
-dimensions. The scope of styles not contained in components can be tightly
-defined, and code is a little easier to read.
+いくつかのユーティリティは1つの宣言だけで実現できるにもかかわらず、インラインスタイルを使わないのはなぜか？
+そのような場合であっても、値がプリプロセスされたり（RTLスタイルシートを生成する等）ビューポートの値に応じて調整されたりすることから、小さなユーティリティのほうが推奨される。
+コンポーネント内に含まれていないスタイルについて、スコープをしっかりと定義することができ、またコードもより読みやすくできる。
 
-## How to use utilities
+## ユーティリティの使い方
 
-Utilities can be added to any element; multiple utilities can be used together;
-and utilities can be used alongside component classes.
+ユーティリティはどんな要素にも追加でき、復数を同時に使うこともでき、コンポーネントのクラスと一緒に使うこともできる。
 
 ```html
 <div class="Tweet u-cf">
@@ -44,21 +38,15 @@ and utilities can be used alongside component classes.
 </div>
 ```
 
-Utilities are grouped by type. The names of utilities with similar concerns
-usually start with a common string, e.g., `u-textCenter`, `u-textTruncate`;
-`u-linkClean`, `u-linkBlock`.
+ユーティリティは種類によってグループ分けされている。
+似たような意図を持ったユーティリティの名前は、`u-textCenter`、`u-textTruncate`、`u-linkClean`、`u-linkBlock`といったように、普通は同じ文字で始まる。
 
-Any classes with terse names, e.g., `u-cf` and `u-nbfc`, are either
-particularly abstract or very commonly used utilities with otherwise
-excessively long names. For example, the `u-cf` utility is used to "contain
-floats" without clipping any overflow; the `u-nbfc` utility is used to create a
-"new block formatting context".
+`u-cf`や`u-nbfc`といった簡潔な名前のクラスは、特に抽象的なものであるか、もしくは他の長い名前のものと一緒によく使われるユーティリティである、
+例えば、`u-cf`ユーティリティはどんなオーバーフローについてもクリッピングを行わない"contain floats"のために使われ、`u-nbfc`ユーティリティは"new block formatting context（新しいブロックフォーマットのコンテキスト）"を作るために使われる。
 
-Make sure to read the documentation within the CSS files of utilities. It will
-contain information about utility classes and their implementations.
+ユーティリティのCSSファイル内にあるドキュメントも確認すること。ユーティリティクラスとその実装についての説明が含まれている。
 
-## Modifiying utilities
+## ユーティリティの変更
 
-Utilities should not be edited while in use, unless it is to fix a bug.
-Modifications to utilities cascade throughout the application and should be
-made with extreme care.
+ユーティリティを使う際、バグを修正するのでない限りは編集をしてはならない。
+ユーティリティに対する変更は、アプリケーション全体を通して影響を及ぼすので注意深く行う必要がある。
