@@ -1,61 +1,58 @@
-# HTML/CSS code style
+# HTML/CSSコードスタイル
 
-## Table of contents
+## 目次
 
-1. [General principles](#general-principles)
-2. [Whitespace](#whitespace)
+1. [原則](#general-principles)
+2. [ホワイトスペース](#whitespace)
 3. [HTML](#html)
-  * [Format](#html-format)
-  * [Attribute order](#html-attrs)
-  * [Naming](#html-naming)
-  * [Practical example](#html-example)
+  * [フォーマット](#html-format)
+  * [属性の順序](#html-attrs)
+  * [命名](#html-naming)
+  * [実例](#html-example)
 4. [CSS](#css)
-  * [Comments](#css-comments)
-  * [Format](#css-format)
-  * [Practical example](#css-example)
+  * [コメント](#css-comments)
+  * [フォーマット](#css-format)
+  * [実例](#css-example)
 
 
 <a name="general-principles"></a>
-## 1. General principles
+## 1. 原則
 
 > "Part of being a good steward to a successful project is realizing that
 > writing code for yourself is a Bad Idea™. If thousands of people are using
 > your code, then write your code for maximum clarity, not your personal
 > preference of how to get clever within the spec." - Idan Gazit
 
-* Don't try to prematurely optimize your code; keep it readable and
-  understandable.
-* Your CSS should look the same as the rest of the CSS in the project.
+* 早すぎるコードの最適化をしようとはせず、読みやすく理解しやすいように維持すること。
+* CSSは、プロジェクト内の他のCSSと変わらないように見えるようにすること
 
 
 <a name="whitespace"></a>
-## 2. Whitespace
+## 2. ホワイトスペース
 
-* Use whitespace to improve readability.
-* Use 2 spaces for indentation.
-* Don't use more than one blank line as a separator.
-* Strip all end-of-line and end-of-file whitespace.
+* 読みやすさのためホワイトスペースを使う。
+* インデントには2つのスペースを使う。
+* セパレーターとして1行よりも多い空行を使わない。
+* 行末およびファイル末尾のホワイトスペースはすべて除去する。
 
 
 <a name="html"></a>
 ## 3. HTML
 
 <a name="html-format"></a>
-### 3.1. Format
+### 3.1. フォーマット
 
-* Always use lowercase tag and attribute names.
-* Write one discrete, block-level element per line.
-* Use one additional level of indentation for each nested block-level element.
-* Use valueless boolean attributes (e.g. `checked` rather than
-  `checked="checked"`).
-* Always use double quotes to quote attribute values.
-* Omit the `type` attributes from `link` stylesheet, `style` and `script`
-  elements.
-* Always include closing tags.
+* タグと属性名には常に小文字を使う。
+* 1つの行には1つのブロックレベル要素を書く。
+* ネストした各ブロックレベル要素には1段階のインデントを行う。
+* 値を持たない真偽値属性を使う（例: `checked="checked"`ではなく`checked`）。
+* 属性値のクオートには常にダブルクオートを使う。
+* スタイルシートの`link`および`syle`と`script`要素からは`type`属性を取り除く。
+* 常に閉じタグを含める。
 
-(Keep line-length to a sensible maximum, e.g., 80 columns.)
+（1行の長さは常識的な上限を保つ。例: 80文字。）
 
-Example:
+例:
 
 ```html
 <div class="Tweet">
@@ -67,12 +64,11 @@ Example:
 </div>
 ```
 
-#### Exceptions and slight deviations
+#### 例外
 
-Elements with multiple attributes can have attributes arranged across multiple
-lines in an effort to improve readability and produce more useful diffs.
+復数の属性を持つ要素は、読みやすさの向上と差分の利便性のため属性を複数行に並べることができる。
 
-Example:
+例:
 
 ```html
 <a class="{{class}}"
@@ -85,11 +81,11 @@ Example:
 
 
 <a name="html-attrs"></a>
-### 3.2. HTML attribute order
+### 3.2. HTML 属性の順序
 
-HTML attributes should be listed in alphabetical order.
+HTML属性はアルファベット順に記述すべきである。
 
-Example:
+例:
 
 ```html
 <a class="{{class}}" data-name="{{name}}" href="{{url}}" id="{{id}}">{{text}}</a>
@@ -97,17 +93,16 @@ Example:
 
 
 <a name="html-naming"></a>
-### 3.3. Naming
+### 3.3. 命名
 
-Naming is hard, but very important. It's a crucial part of the process of
-developing a maintainable code base. Don't be afraid to rename components.
+命名は難しいがとても重要である。
+コードベースをメンテナンスしやすく保つにあたって重大な部分である。
+コンポーネントをリネームすることを恐れないこと。
 
-* Use clear, thoughtful, and appropriate names for HTML classes. The names
-  should be informative both within HTML and CSS files.
-* Avoid _systematic_ use of abbreviated class names. Don't make things
-  difficult to understand.
+* HTMLクラス名は、明解でよく考えられた適切な名前にする。HTMLとCSSファイルのどちらでも通用する名前にすべきである。
+* 省略形のクラス名を_機械的_に使うのは避ける。理解しづらくならないように。
 
-Example with "bad" names:
+「悪い」名前の例:
 
 ```html
 <div class="cb s-scr"></div>
@@ -123,7 +118,7 @@ Example with "bad" names:
 }
 ```
 
-Example with better names:
+より良い名前の例:
 
 ```html
 <div class="ColumnBody is-scrollable"></div>
@@ -141,9 +136,9 @@ Example with better names:
 
 
 <a name="html-example"></a>
-### 3.4. HTML practical example
+### 3.4. HTML 実例
 
-An example of various conventions.
+ルールに沿った例。
 
 ```html
 <!DOCTYPE html>
@@ -187,25 +182,24 @@ An example of various conventions.
 ## 4. CSS
 
 <a name="css-comments"></a>
-### 4.1. Comments
+### 4.1. コメント
 
-Well commented code is extremely important. Take time to describe components,
-how they work, their limitations, and the way they are constructed. Don't leave
-others in the team guessing as to the purpose of uncommon or non-obvious
-code.
+ちゃんとコメントされているコードはとても重要だ。
+コンポーネントの詳細や働き、その制限、利用方法の説明に時間をかけること。
+チームの人たちに、奇妙なコードや自明ではないコードの意図を推測させたりしてはならない。
 
-Comment style should be simple and consistent within a single code base.
+コメントの書式は、シンプルかつ1つのコードベース内で一貫していること。
 
-* Place comments on a new line above their subject.
-* Keep line-length to a sensible maximum, e.g., 80 columns.
-* Make liberal use of comments to break CSS code into discrete sections.
-* Use "sentence case" comments and consistent text indentation.
-* Use numeric end-of-line comments to reference documentation for individual declarations.
+* コメントは対象となるものの前に新しい行を用意して記述する。
+* 行の長さは常識的な上限を保つ。例: 80文字。
+* CSSコードをセクションに分けるためにコメントを気前よく使う。
+* "sentence case"コメントを使い、一貫したインデントを行う。
+* 個別の宣言についての説明を参照させるには、数値を行末にコメントとして書く。
 
 Tip: configure your editor to provide you with shortcuts to output agreed-upon
 comment patterns.
 
-Example:
+例:
 
 ```css
 /**
@@ -236,7 +230,7 @@ Example:
 ```
 
 <a name="css-format"></a>
-### 4.2. Format
+### 4.2. フォーマット
 
 The chosen code format ensures that code is: easy to read; easy to clearly
 comment; minimizes the chance of accidentally introducing errors; and results
@@ -278,7 +272,7 @@ in useful diffs and blames.
 }
 ```
 
-#### Declaration order
+#### 宣言の順序
 
 Use alphabetical ordering of declarations unless the cascade absolutely
 requires otherwise.
@@ -297,7 +291,7 @@ requires otherwise.
 }
 ```
 
-#### Exceptions and slight deviations
+#### 例外
 
 Large blocks of single declarations can use a slightly different, single-line
 format. In this case, a space should be included after the opening brace and
@@ -325,9 +319,9 @@ readability and produce more useful diffs.
 ```
 
 <a name="example"></a>
-### 4.3. Practical example
+### 4.3. 実例
 
-An example of various conventions.
+ルールに沿った例。
 
 ```css
 /** @define Grid; use strict */
@@ -410,7 +404,8 @@ An example of various conventions.
 ```
 
 
-Based on work at
 [github.com/necolas/idiomatic-html](https://github.com/necolas/idiomatic-html)
-and
+と
 [github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css).
+を元に作成。
+
