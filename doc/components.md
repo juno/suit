@@ -1,11 +1,10 @@
-# SUIT CSS components
+# SUIT CSSコンポーネント
 
-SUIT CSS is designed for styling reusable, composable components. The benefits
-are most apparent in a system that considers components to be the building
-blocks of your application.
+SUIT CSSは、再利用可能で合成可能なコンポーネントのスタイリングのために設計されている。
+コンポーネントをアプリケーションの構成要素とする試みの利点は明白だ。
 
-Think of components as custom elements that enclose specific semantics,
-styling, and behaviour. For example, this `Photo` component and configuration:
+コンポーネントとして、固有のセマンティクスとスタイリング、それに振るまいを持ったカスタムエレメントを考えてみよう。
+例えば、このような`Photo`コンポーネントだ:
 
 ```html
 <Photo src="photo.jpg" size="large" crop="circle">
@@ -13,7 +12,7 @@ styling, and behaviour. For example, this `Photo` component and configuration:
 </Photo>
 ```
 
-could yield the following HTML:
+これは以下のようなHTMLを生成するだろう:
 
 ```html
 <article class="Photo Photo--sizeLarge">
@@ -29,24 +28,18 @@ could yield the following HTML:
 </article>
 ```
 
-SUIT CSS helps to partially isolate the CSS used in the `Photo` component's
-implementation. In doing so, it makes styling simpler by reducing the amount of
-styling entanglement between components, and prevents styles from leaking
-outside the component.
+SUIT CSSは、`Photo`コンポーネントの実装内で使われるCSSを部分的に分離することを支援する。
+それによって、コンポーネント間でのスタイリングの絡み合いを減らしスタイリングを簡潔なものにし、コンポーネントの外にスタイルが漏れることも防ぐ。
 
-(Read about SUIT CSS's [naming conventions](naming-conventions.md).)
+(SUIT CSSの[命名規則](naming-conventions.md)も参照)
 
-## Component scope
+## コンポーネントのスコープ
 
-The component's core class name (e.g., `ComponentName`) reserves a namespace
-that can only be used by that component. This can be enforced using with tools
-(e.g. [suitcss-preprocessor](https://github.com/suitcss/preprocessor) or
-[rework-suit-conformance](https://github.com/suitcss/rework-suit-conformance)
-in your build process.
+コンポーネントのコアクラス名（例えば`ComponentName`）は、そのコンポーネントでのみ使われる名前空間を表す。
+これは、ビルドプロセスで[suitcss-preprocessor](https://github.com/suitcss/preprocessor)や[rework-suit-conformance](https://github.com/suitcss/rework-suit-conformance)といったツールを使うことで強制することができる。
 
-**All selectors in a component file must start with the component's
-namespace**. For example, a component called `MyComponent` could have the
-following CSS, where every selector starts with the string `MyComponent`.
+**コンポーネントファイル内のすべてのセレクタはコンポーネントの名前空間で始まらなければならない**。
+例えば、`MyComponent`という名前のコンポーネントは、以下のようにすべてのセレクタが`MyComponent`という文字列で始まるCSSを持つことになる。
 
 ```css
 /** @define MyComponent */
@@ -59,7 +52,7 @@ following CSS, where every selector starts with the string `MyComponent`.
 .MyComponent-time { /* ... */ }
 ```
 
-Each class provides a hook to style specific elements within the HTML definition.
+それぞれのクラスは、HTML内でそれぞれの要素にスタイルを適用するためのフックとなる。
 
 ```html
 <article class="MyComponent u-cf">
@@ -72,8 +65,7 @@ Each class provides a hook to style specific elements within the HTML definition
 </div>
 ```
 
-Like classes, variables must also be scoped to their component by including the
-component name in the variable name:
+クラスと同様に、変数も変数名にコンポーネント名を含むことでスコープをそのコンポーネント内に限定しなければならない:
 
 ```css
 /** @define MyComponent */
@@ -88,60 +80,53 @@ component name in the variable name:
 }
 ```
 
-This allows a theme to override the defaults if desired.
+これによって、デフォルトを上書きするテーマが可能となる。
 
-Avoid coupling or entangling components, even if that means the code is not as
-DRY as you think it should be. Isolation prevents avoidable complexity and is
-an important part of robust reuse.
+コードがDRYでなくなるとしても、コンポーネントの結合や絡み合いのほうを防ぐこと。
+分離することは回避可能な複雑さの予防になり、堅牢な再利用のためにも重要である。
 
-## One pattern, one component
+## 1つのパターン、1つのコンポーネント
 
-**Each component should implement a single part of the UI**. Don't try to do
-too much.
+**各コンポーネントはUIの一部分だけを実装すべきである**。多くのことをやろうとしないこと。
 
-**Each component should have a dedicated CSS file**. Ideally your component's
-files are grouped together in a dedicated directory.
+**各コンポーネントは専用のCSSファイルを持つべきである**。コンポーネントに関するファイルはそのコンポーネント用のディレクトリに集められているのが理想である。
 
-## Documenting implementation details
+## 実装詳細のドキュメント化
 
-Components must document their implementation. The CSS comments for a component
-should seek to answer the following questions:
+コンポーネントは、その実装についてのドキュメントが無ければならない。コンポーネントのCSSコメントは以下の質問について回答するべきである:
 
-* What is the intended presentation?
-* What are the modifiers and states?
-* What are the reasons for specific, opaque property values.
-* What are the known limitations?
+* どのような表示（Presentation）が意図されているか？
+* どんなモディファイアと状態があるか？
+* 詳細だったり曖昧だったりするプロパティ値はどのような理由からか？
+* どんな制限があるか？
 
-## Adapting to ancestral context
+## 祖先のコンテキストに対する順応
 
-**Most components should not set their own width, margin, and positioning.** By
-authoring a component to be full-width or inline, it can better adapt to the
-dimensions of an ancestral context.
+**ほとんどのコンポーネントは自身の幅やマージン、位置を指定すべきではない。**
+コンポーネントをfull-widthまたはインラインであるように作成することで、祖先のコンテキストにうまく順応させることができるようになる。
 
-## Styling dependencies
+## スタイリングの依存
 
-**A component should not know about the implementation of its dependencies**.
-The appearance of dependencies must be configured using the interface they provide.
+**コンポーネントは自身が依存する実装について知るべきではない**。
+何に依存するのかということは、それらのインターフェースを通じて設定するべきである。
 
-Controlling dimensions, margins, position, and inheritable styles of a
-component can be done _indirectly_. Add a class to its root element, or wrap
-it in another element.
+コンポーネントの大きさやマージン、位置、継承可能なスタイルは_非直接的_に行うことができる。コンポーネントのルート要素にクラスを追加するか、それを他の要素でラップすること。
 
 ```css
-/* Excerpt */
+/* 引用（Excerpt） */
 
 .Excerpt {
   /* ... */
 }
 
-/* Attaches to a nested component */
+/* ネストしたコンポーネントに追加する */
 
 .Excerpt-button {
   display: inline-block;
   margin-top: 20px;
 }
 
-/* Wraps a nested component */
+/* ネストしたコンポーネントをラップする */
 
 .Excerpt-wrapButton {
   display: inline-block;
@@ -151,12 +136,12 @@ it in another element.
 
 ```html
 <article class="Excerpt u-cf">
-  {{! other implementation details }}
+  {{! 実装に関するその他の詳細 }}
 
-  <read-button class="Excerpt-button">Read more</read-button>
+  <read-button class="Excerpt-button">続きを読む</read-button>
 
   <div class="Excerpt-wrapButton">
-    <read-button>Read more</read-button>
+    <read-button>続きを読む</read-button>
   </div>
 </article>
 ```
