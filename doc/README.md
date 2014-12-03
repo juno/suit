@@ -2,7 +2,7 @@
 
 **目次**
 
-* [デザイン原則](design-principles.md)
+* [設計の原則](design-principles.md)
 * [命名規則](naming-conventions.md)
   * [u-utilityName](naming-conventions.md#u-utilityName)
   * [ComponentName](naming-conventions.md#ComponentName)
